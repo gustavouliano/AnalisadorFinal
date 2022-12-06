@@ -1,0 +1,97 @@
+var tabelaAFD = {
+    0: {'Function': 'S2'},
+    1: {'$': 'ACCEPT'},
+    2: {'Identificador': 'S3'},
+    3: {'Abre parêntese': 'S4'},
+    4: {'int': 'S200', 'double': 'S200', 'string': 'S200', 'boolean': 'S200', 'Fecha parêntese': 'S16'},
+    200: {'Identificador': 'R1'},
+    201: {'Identificador': 'S13'},
+    210: {'Identificador': 'S5'},
+    5: {'Vírgula': 'S9', 'Fecha parêntese': 'R2'},
+    27: {'Fecha parêntese': 'R3', 'Vírgula': 'R2'},
+    6: {'Identificador': 'S7'},
+    7: {'Vírgula': 'S9', 'Fecha parêntese': 'R2'},
+    8: {'Fecha parêntese': 'R3'},
+    9: {'int': 'S200', 'double': 'S200', 'string': 'S200', 'boolean': 'S200'},
+    10: {'Identificador': 'S11'},
+    11: {'Vírgula': 'S9', 'Fecha parêntese': 'R5'},
+    12: {'Fecha parêntese': 'R4'},
+    13: {'Vírgula': 'R3', 'Fecha parêntese': 'R3'},
+    14: {'Fecha parêntese': 'R3'},
+    15: {'Fecha parêntese': 'S16'},
+    16: {'Abre chave': 'S17'},
+    17: {'Fecha chave': 'S99', 'Identificador': 'S28', 'int': 'S32', 'double': 'S32', 'string': 'S32', 'boolean': 'S32', 'if': 'S38', 'while': 'S18', 'Print': 'S300'},
+    18: {'Abre parêntese': 'S19'},
+    19: {'Identificador': 'S20', 'Constante': 'S20'},
+    20: {'Sinal de igual': 'S43', 'Sinal de maior': 'S41', 'Sinal de menor': 'S42'},
+    21: {'Identificador': 'S22', 'Constante': 'S22'},
+    22: {'Fecha parêntese': 'S23'},
+    23: {'Abre chave': 'S60'},
+    60: {'Fecha chave': 'S95', 'Identificador': 'S28', 'int': 'S32', 'double': 'S32', 'string': 'S32', 'boolean': 'S32' ,'if': 'S38', 'while': 'S18', 'Print': 'S300'},
+    61: {'Fecha chave': 'S62'},
+    62: {'Fecha chave': 'R9'},
+    99: {'$': 'R7'},
+    97: {'Fecha chave': 'S98'},
+    98: {'$': 'R8'},
+    96: {'Fecha chave': 'R8'},
+    95: {'Fecha chave': 'R8'},
+    28: {'Sinal de atribuição': 'S29'},
+    29: {'Identificador': 'S30', 'Constante': 'S31'},
+    30: {'Fecha chave': 'R3'},
+    31: {'Fecha chave': 'R3'},
+    32: {'Identificador': 'S33', 'Fecha chave': 'R1'},
+    33: {'Sinal de atribuição': 'S34'},
+    34: {'Identificador': 'S35', 'Constante': 'S37', 'Aspas simples': 'S400'},
+    400: {'Identificador': 'S401', 'Constante': 'S401'},
+    401: {'Aspas simples': 'S402'},
+    402: {'Fecha chave': 'R5'},
+    35: {'Fecha chave': 'R3'},
+    36: {'Fecha chave': 'R2'},
+    37: {'Fecha chave': 'R3'},
+    38: {'Abre parêntese': 'S39'},
+    39: {'Identificador': 'S40', 'Constante': 'S40'},
+    40: {'Sinal de igual': 'S43', 'Sinal de maior': 'S41', 'Sinal de menor': 'S42'},
+    41: {'Identificador': 'R1', 'Constante': 'R1'},
+    42: {'Identificador': 'R1', 'Constante': 'R1'},
+    43: {'Identificador': 'R1', 'Constante': 'R1'},
+    44: {'Identificador': 'S45', 'Constante': 'S45'},
+    45: {'Fecha parêntese': 'S46'},
+    46: {'Abre chave': 'S47'},
+    47: {'Fecha chave': 'S96', 'int': 'S32', 'double': 'S32', 'string': 'S32', 'boolean': 'S32', 'Identificador': 'S28', 'if': 'S38', 'while': 'S18', 'Print': 'S300'},
+    48: {'Fecha chave': 'S49'},
+    49: {'Fecha chave': 'R9'},
+    300: {'Abre parêntese': 'S301'},
+    301: {'Fecha parêntese': 'S302', 'Aspas simples': 'S303', 'Identificador': 'S307', 'Constante': 'S307'},
+    302: {'Fecha chave': 'R3'},
+    303: {'Identificador': 'S304', 'Constante': 'S304'},
+    304: {'Aspas simples': 'S305'},
+    305: {'Fecha parêntese': 'S306'},
+    306: {'Fecha chave': 'R6'},
+    307: {'Fecha parêntese': 'S308'},
+    308: {'Fecha chave': 'R4'}
+};
+
+type typeInsideTabelaGoTo = {
+    [index: string]: number;
+}
+type typeTabelaGoTo = {
+    [index: number]: typeInsideTabelaGoTo
+}
+
+var tabelaGoTo: typeTabelaGoTo = {
+    0: {'$': 1},
+    4: {'Fecha parêntese': 15, 'Identificador': 210},
+    5: {'Fecha parêntese': 27, 'Vírgula': 27},
+    7: {'Fecha parêntese': 8},
+    9: {'Identificador': 201},
+    11: {'Fecha parêntese': 27}, //TEM QUE VER
+    13: {'Fecha p   arêntese': 5}, // GAMBIARRA TALVEZ
+    17: {'Fecha chave': 97},
+    32: {'Fecha chave': 36},
+    40: {'Identificador': 44, 'Constante': 44},
+    20: {'Identificador': 21, 'Constante': 21},
+    47: {'Fecha chave': 48},
+    60: {'Fecha chave': 61}
+}
+
+export { tabelaAFD, tabelaGoTo }

@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.form_gramatica{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#gramatica {
+    width: 20rem; 
+    height: 12rem;
+    resize: none;
+}
+
+.analise_resultado > div {
+    font-weight: 700;
+}
+
+.analise_resultado > div > span {
+    font-weight: normal;
+}
